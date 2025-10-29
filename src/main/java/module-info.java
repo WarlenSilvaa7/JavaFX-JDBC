@@ -12,5 +12,6 @@ module org.example.javafxjdbc {
     requires com.almasb.fxgl.all;
 
     opens org.example.javafxjdbc to javafx.fxml;
+    opens org.example.javafxjdbc.controller to javafx.fxml;
     exports org.example.javafxjdbc;
 }
