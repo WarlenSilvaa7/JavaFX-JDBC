@@ -13,5 +13,6 @@ module org.example.javafxjdbc {
 
     opens org.example.javafxjdbc to javafx.fxml;
     opens org.example.javafxjdbc.controller to javafx.fxml;
+    opens org.example.javafxjdbc.model.entities to javafx.base;
     exports org.example.javafxjdbc;
 }
