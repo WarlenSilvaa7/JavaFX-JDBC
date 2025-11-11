@@ -11,6 +11,7 @@ module org.example.javafxjdbc {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires jdk.jshell;
 
     opens org.example.javafxjdbc to javafx.fxml;
     opens org.example.javafxjdbc.controller to javafx.fxml;
