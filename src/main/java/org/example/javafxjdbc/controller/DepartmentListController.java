@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.javafxjdbc.Main;
+import org.example.javafxjdbc.listeners.DataChangeListener;
 import org.example.javafxjdbc.model.entities.Department;
 import org.example.javafxjdbc.model.services.DepartmentService;
 import org.example.javafxjdbc.util.Alerts;
@@ -26,7 +27,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class DepartmentListController implements Initializable {
+public class DepartmentListController implements Initializable, DataChangeListener {
 
     private DepartmentService service;
 
@@ -84,6 +85,7 @@ public class DepartmentListController implements Initializable {
             DepartmentFormController controller = loader.getController();
             controller.setDepartment(obj);
             controller.setDepartmentService(new DepartmentService());
+            controller.subcribeDataChangeListener(this);
             controller.updateFormData();
 
             Stage dialogStage = new Stage();
@@ -98,5 +100,10 @@ public class DepartmentListController implements Initializable {
         }catch (IOException e){
             Alerts.showAlert("IO Excepttion", "Error loading vies", e.getMessage(), Alert.AlertType.ERROR);
         }
+    }
+
+    @Override
+    public void onDataChanged() {
+        updateTableView();
     }
 }
