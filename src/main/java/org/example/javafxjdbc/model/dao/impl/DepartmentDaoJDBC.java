@@ -3,6 +3,7 @@ package org.example.javafxjdbc.model.dao.impl;
 
 import org.example.javafxjdbc.db.DB;
 import org.example.javafxjdbc.db.DbException;
+import org.example.javafxjdbc.db.DbIntegrityException;
 import org.example.javafxjdbc.model.dao.DepartmentDao;
 import org.example.javafxjdbc.model.entities.Department;
 
@@ -82,13 +83,17 @@ public class DepartmentDaoJDBC implements DepartmentDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement(
-                    "DELETE FROM department WHERE Id = ? ");
+                    "DELETE FROM department WHERE Id = ?");
 
-            st.setInt(1,id);
+            st.setInt(1, id);
             st.executeUpdate();
-
         }
-        catch (SQLException e){
+        catch (SQLException e) {
+            // Se for violação de integridade (chave estrangeira)
+            if (e.getMessage() != null && e.getMessage().toLowerCase().contains("foreign key")) {
+                throw new DbIntegrityException("Cannot delete department because it is linked to other records");
+            }
+            // Caso seja outro erro SQL
             throw new DbException(e.getMessage());
         }
         finally {
