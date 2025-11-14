@@ -11,6 +11,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import org.example.javafxjdbc.Main;
 import org.example.javafxjdbc.model.services.DepartmentService;
+import org.example.javafxjdbc.model.services.SellerService;
 import org.example.javafxjdbc.util.Alerts;
 
 import java.io.IOException;
@@ -28,7 +29,10 @@ public class MainViewController implements Initializable {
     private MenuItem menuItemAbout;
 
     public void onMenuItemSellerAction(){
-        System.out.println("onMenuItemSellerAction");
+        loadView("/org/example/javafxjdbc/SellerList.fxml", (SellerListController controller) -> {
+            controller.setSellerService(new SellerService());
+            controller.updateTableView();
+        });
     }
 
     public void onMenuItemDepartmentAction(){
