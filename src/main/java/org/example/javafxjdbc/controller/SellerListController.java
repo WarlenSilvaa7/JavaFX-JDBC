@@ -102,28 +102,28 @@ public class SellerListController implements Initializable, DataChangeListener {
     }
 
     private void createDialogForm(Seller obj, String absoluteName, Stage parentStage){
-//        try{
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
-//            Pane pane = loader.load();
-//
-//            SellerFormController controller = loader.getController();
-//            controller.setSeller(obj);
-//            controller.setSellerService(new SellerService());
-//            controller.subcribeDataChangeListener(this);
-//            controller.updateFormData();
-//
-//            Stage dialogStage = new Stage();
-//            dialogStage.setTitle("Enter Seller data");
-//            dialogStage.setScene(new Scene(pane));
-//            dialogStage.setResizable(false);
-//            dialogStage.initOwner(parentStage);
-//            dialogStage.initModality(Modality.WINDOW_MODAL);
-//            dialogStage.showAndWait();
-//
-//
-//        }catch (IOException e){
-//            Alerts.showAlert("IO Excepttion", "Error loading vies", e.getMessage(), Alert.AlertType.ERROR);
-//        }
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+            Pane pane = loader.load();
+
+            SellerFormController controller = loader.getController();
+            controller.setSeller(obj);
+            controller.setSellerService(new SellerService());
+            controller.subcribeDataChangeListener(this);
+            controller.updateFormData();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Enter Seller data");
+            dialogStage.setScene(new Scene(pane));
+            dialogStage.setResizable(false);
+            dialogStage.initOwner(parentStage);
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.showAndWait();
+
+
+        }catch (IOException e){
+            Alerts.showAlert("IO Excepttion", "Error loading vies", e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     @Override
