@@ -17,6 +17,7 @@ import org.example.javafxjdbc.Main;
 import org.example.javafxjdbc.db.DbIntegrityException;
 import org.example.javafxjdbc.listeners.DataChangeListener;
 import org.example.javafxjdbc.model.entities.Seller;
+import org.example.javafxjdbc.model.services.DepartmentService;
 import org.example.javafxjdbc.model.services.SellerService;
 import org.example.javafxjdbc.util.Alerts;
 import org.example.javafxjdbc.util.Utils;
@@ -108,7 +109,8 @@ public class SellerListController implements Initializable, DataChangeListener {
 
             SellerFormController controller = loader.getController();
             controller.setSeller(obj);
-            controller.setSellerService(new SellerService());
+            controller.setServices(new SellerService(), new DepartmentService());
+            controller.loadAssociatedObjects();
             controller.subcribeDataChangeListener(this);
             controller.updateFormData();
 
@@ -122,6 +124,7 @@ public class SellerListController implements Initializable, DataChangeListener {
 
 
         }catch (IOException e){
+            e.printStackTrace();
             Alerts.showAlert("IO Excepttion", "Error loading vies", e.getMessage(), Alert.AlertType.ERROR);
         }
     }
