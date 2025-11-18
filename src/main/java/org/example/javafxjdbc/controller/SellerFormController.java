@@ -3,10 +3,7 @@ package org.example.javafxjdbc.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import org.example.javafxjdbc.db.DbException;
 import org.example.javafxjdbc.listeners.DataChangeListener;
 import org.example.javafxjdbc.model.entities.Seller;
@@ -17,6 +14,8 @@ import org.example.javafxjdbc.util.Constraints;
 import org.example.javafxjdbc.util.Utils;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 public class SellerFormController implements Initializable {
@@ -34,7 +33,26 @@ public class SellerFormController implements Initializable {
     private TextField txtName;
 
     @FXML
+    private TextField txtEmail;
+
+    @FXML
+    private DatePicker dpBirthDate;
+
+    @FXML
+    private TextField txtBaseSalary;
+
+    @FXML
     private Label labelErrorName;
+
+    @FXML
+    private Label labelErrorEmail;
+
+    @FXML
+    private Label labelErrorBirthDate;
+
+    @FXML
+    private Label labelErrorBaseSalary;
+
 
     @FXML
     private Button btSave;
@@ -108,7 +126,10 @@ public class SellerFormController implements Initializable {
 
     private void initializeNode(){
         Constraints.setTextFieldInteger(txtId);
-        Constraints.setTextFieldMaxLength(txtName,30);
+        Constraints.setTextFieldMaxLength(txtName,70);
+        Constraints.setTextFieldMaxLength(txtEmail,60);
+        Constraints.setTextFieldDouble(txtBaseSalary);
+        Utils.formatDatePicker(dpBirthDate,"dd/MM/yyyy");
     }
 
     public void setSeller(Seller entity){
@@ -119,12 +140,19 @@ public class SellerFormController implements Initializable {
         this.service = service;
     }
 
-    public void updateFormData(){
-        if(entity == null){
+    public void updateFormData() {
+        if (entity == null) {
             throw new IllegalStateException("Entity was null");
         }
         txtId.setText(String.valueOf(entity.getId()));
         txtName.setText(entity.getName() == null ? "" : entity.getName());
+        txtEmail.setText(entity.getEmail() == null ? "" : entity.getEmail());
+        Locale.setDefault(Locale.US);
+        txtBaseSalary.setText(entity.getBaseSalary() == null ? "" : String.format("%.2f", entity.getBaseSalary()));
+
+        if (entity.getBirthDate() != null) {
+            dpBirthDate.setValue(LocalDate.ofInstant(entity.getBirthDate().toInstant(), ZoneId.systemDefault()));
+        }
     }
 
     private void setErrorMessages(Map<String,String> errors){
