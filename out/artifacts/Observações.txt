@@ -1,0 +1,8 @@
+Quando for rodar em outro computador:
+
+levar
+
+* libs
+* db.properties (config de conexão com banco de dados)
+* java JDK
+* JavaFX SDK

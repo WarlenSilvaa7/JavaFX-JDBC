@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Main-Class: org.example.javafxjdbc.Main
+Class-Path: toolboxfx-21.0.3.jar ikonli-javafx-12.3.1.jar audio-4.0.17.j
+ ar lifecycle-4.0.17.jar tilesfx-21.0.3.jar storage-4.0.17.jar javafx-we
+ b-21.jar javafx-graphics-21.jar javafx-base-21.jar validatorfx-0.5.0.ja
+ r ikonli-core-12.3.1.jar util-4.0.17.jar jackson-databind-2.14.2.jar ja
+ vafx-media-21.jar javafx-media-21-win.jar toolbox-21.0.5.jar javafx-con
+ trols-21.jar formsfx-core-11.6.0.jar countries-21.0.3.jar javafx-fxml-2
+ 1.jar javafx-swing-21-win.jar kotlin-stdlib-1.8.10.jar fxgl-entity-17.3
+ .jar javafx-web-21-win.jar jackson-annotations-2.14.2.jar javafx-base-2
+ 1-win.jar javafx-swing-21.jar fxgl-io-17.3.jar protobuf-java-3.25.1.jar
+  javafx-fxml-21-win.jar annotations-13.0.jar heatmap-21.0.3.jar javafx-
+ controls-21-win.jar jackson-core-2.14.2.jar kotlin-stdlib-common-1.8.10
+ .jar fxgl-core-17.3.jar javafx-graphics-21-win.jar fxgl-17.3.jar mysql-
+ connector-j-8.3.0.jar bootstrapfx-core-0.4.0.jar fxgl-scene-17.3.jar fx
+ gl-gameplay-17.3.jar controlsfx-11.2.1.jar
+
