@@ -1,0 +1,223 @@
+/* Define a cor de fundo da janela */
+.root {
+    -fx-background-color: #FFFFFF; /* Fundo branco limpo */
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif; /* Fontes modernas */
+}
+
+/* Estilo para o título "About" */
+.label-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C3E50; /* Azul escuro corporativo */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0, 0, 1); /* Sombra muito suave */
+}
+
+/* Estilo para o texto descritivo */
+.label-content {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7F8C8D; /* Cinza médio para texto secundário */
+    -fx-padding: 10px 0 0 0;
+}
+
+/* --- Estilos de Formulário --- */
+
+/* Campos de texto gerais */
+.text-field {
+    -fx-background-color: #F0F2F5;
+    -fx-border-color: #D1D5DB;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+}
+
+/* Efeito quando clica no campo */
+.text-field:focused {
+    -fx-border-color: #3498DB; /* Azul destaque */
+    -fx-background-color: #FFFFFF;
+}
+
+/* Campo ID (Desabilitado visualmente) */
+.text-field-readonly {
+    -fx-background-color: #E5E7EB; /* Cinza mais escuro */
+    -fx-text-fill: #6B7280;
+    -fx-opacity: 1.0; /* Remove a transparência padrão do JavaFX */
+}
+
+/* --- Botões --- */
+.button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+}
+
+/* Botão Salvar (Primário - Verde ou Azul) */
+.button-confirm {
+    -fx-background-color: #2ECC71; /* Verde Esmeralda */
+    -fx-text-fill: white;
+}
+.button-confirm:hover {
+    -fx-background-color: #27AE60; /* Verde mais escuro no mouse over */
+}
+
+/* Botão Cancelar (Secundário - Cinza ou Vermelho suave) */
+.button-cancel {
+    -fx-background-color: #E74C3C; /* Vermelho Alizarin */
+    -fx-text-fill: white;
+}
+.button-cancel:hover {
+    -fx-background-color: #C0392B;
+}
+
+/* Mensagem de Erro */
+.label-error {
+    -fx-text-fill: #E74C3C;
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+}
+
+/* --- Estilização da Tabela (TableView) --- */
+
+/* Remove o fundo cinza padrão da área da tabela */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #E5E7EB; /* Borda suave ao redor */
+    -fx-border-width: 1px;
+}
+
+/* Estilo do Cabeçalho das Colunas */
+.table-view .column-header-background {
+    -fx-background-color: #F3F4F6; /* Cinza bem claro no topo */
+    -fx-border-width: 0 0 1 0; /* Apenas borda inferior */
+    -fx-border-color: #D1D5DB;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #374151; /* Texto cinza escuro */
+    -fx-alignment: CENTER-LEFT;
+}
+
+/* Linhas da Tabela */
+.table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-width: 0 0 1 0; /* Linha separadora fina */
+    -fx-border-color: #F3F4F6;
+    -fx-padding: 5px 0; /* Espaço extra nas células */
+}
+
+/* Efeito Zebra (Linhas ímpares com cor diferente) */
+.table-row-cell:odd {
+    -fx-background-color: #F9FAFB;
+}
+
+/* Quando passa o mouse sobre a linha */
+.table-row-cell:hover {
+    -fx-background-color: #EFF6FF; /* Azul bem clarinho */
+}
+
+/* Quando a linha está selecionada */
+.table-view:focused .table-row-cell:selected {
+    -fx-background-color: #BFDBFE; /* Azul destaque */
+    -fx-text-background-color: #1E3A8A; /* Texto azul escuro */
+}
+
+/* Remove a barra de rolagem horizontal feia se não precisar */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:horizontal .increment-button,
+.table-view .scroll-bar:horizontal .decrement-button {
+    -fx-background-color: transparent;
+    -fx-opacity: 0;
+} /* <--- O ERRO ESTAVA AQUI: Faltava fechar esta chave */
+
+/* --- Menu Bar (Barra Principal) --- */
+.menu-bar {
+    -fx-background-color: #FFFFFF; /* Fundo branco */
+    -fx-border-color: #E5E7EB;     /* Borda inferior sutil */
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5px;
+}
+
+/* Botões do Menu (Registration, Help) */
+.menu-bar .label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374151; /* Cinza escuro */
+}
+
+/* Quando passa o mouse no menu principal */
+.menu-bar .menu-button:hover,
+.menu-bar .menu-button:focused,
+.menu-bar .menu-button:showing {
+    -fx-background-color: #F3F4F6; /* Cinza bem claro no hover */
+    -fx-background-radius: 4px;
+}
+
+/* Itens dentro do Menu (Seller, Department, About) */
+.menu-item {
+    -fx-padding: 5px 15px;
+}
+
+.menu-item .label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #4B5563;
+    -fx-font-weight: normal;
+}
+
+.menu-item:focused {
+     -fx-background-color: #3B82F6; /* Azul quando seleciona o item */
+     -fx-text-fill: white;
+}
+
+/* Remover bordas feias do ScrollPane principal */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* --- Componentes Específicos (DatePicker e ComboBox) --- */
+
+.date-picker, .combo-box {
+    /* Removemos o estilo padrão para aplicar o nosso */
+    -fx-background-color: transparent;
+}
+
+/* Estiliza a caixa de texto dentro do DatePicker e o corpo do ComboBox */
+.date-picker .text-field,
+.combo-box .list-cell,
+.combo-box-base {
+    -fx-background-color: #F0F2F5;
+    -fx-border-color: #D1D5DB;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 4px 8px; /* Ajuste fino para alinhar altura */
+}
+
+/* Quando clica (Foco) */
+.date-picker .text-field:focused,
+.combo-box:focused {
+    -fx-border-color: #3498DB;
+    -fx-background-color: #FFFFFF;
+}
+
+/* Botãozinho da seta/calendário na direita */
+.date-picker .arrow-button,
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+.date-picker .arrow-button .arrow,
+.combo-box .arrow-button .arrow {
+    -fx-background-color: #4B5563; /* Seta cinza escuro */
+}
+
+/* Alinhar colunas específicas (Opcional) */
+.table-cell {
+    -fx-alignment: CENTER-LEFT;
+}

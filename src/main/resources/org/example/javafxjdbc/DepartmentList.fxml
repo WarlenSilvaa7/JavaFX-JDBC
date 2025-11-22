@@ -9,28 +9,47 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxjdbc.controller.DepartmentListController">
-   <children>
-      <Label text="Department Registration">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-         <padding>
-            <Insets left="5.0" top="5.0" />
-         </padding>
-      </Label>
-      <ToolBar prefHeight="40.0" prefWidth="200.0">
-        <items>
-          <Button fx:id="btNew" mnemonicParsing="false" onAction="#onBtNewAction" text="New" />
-        </items>
-      </ToolBar>
-      <TableView fx:id="tableViewDepartment" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="tableColumnName" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="tableColumnEDIT" prefWidth="75.0" />
-            <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" />
-        </columns>
-      </TableView>
-   </children>
+<VBox prefHeight="400.0" prefWidth="600.0" spacing="10.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxjdbc.controller.DepartmentListController">
+    <children>
+
+        <Label styleClass="label-title" text="Department Registration">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+            <VBox.margin>
+                <Insets left="5.0" top="5.0" />
+            </VBox.margin>
+        </Label>
+
+        <ToolBar style="-fx-background-color: transparent;">
+            <items>
+                <Button fx:id="btNew" mnemonicParsing="false" onAction="#onBtNewAction" styleClass="button-confirm" text="+ New Department" />
+            </items>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets left="-5.0" />
+            </padding>
+        </ToolBar>
+
+        <TableView fx:id="tableViewDepartment" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="tableColumnId" prefWidth="60.0" text="ID" />
+
+                <TableColumn fx:id="tableColumnName" prefWidth="200.0" text="Name" />
+
+                <TableColumn fx:id="tableColumnEDIT" prefWidth="70.0" />
+                <TableColumn fx:id="tableColumnREMOVE" prefWidth="90.0" />
+            </columns>
+
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+    </children>
+
+    <padding>
+        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+    </padding>
 </VBox>

@@ -6,13 +6,17 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="400.0" prefWidth="600.0"
+<ScrollPane fitToHeight="true" fitToWidth="true"
+            maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="800.0"
+            stylesheets="@styles.css"
             xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="org.example.javafxjdbc.controller.MainViewController">
+
     <content>
-        <VBox prefHeight="322.0" prefWidth="489.0">
+        <VBox prefHeight="322.0" prefWidth="489.0" style="-fx-background-color: white;">
             <children>
                 <MenuBar>
                     <menus>
@@ -32,6 +36,7 @@
                         </Menu>
                     </menus>
                 </MenuBar>
+
             </children>
         </VBox>
     </content>
